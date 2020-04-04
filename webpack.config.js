@@ -2,7 +2,7 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
 
-const distPath = path.join(__dirname, '/dist');
+const distPath = path.join(__dirname, '/docs');
 
 module.exports = {
   entry: './src/index.js',
