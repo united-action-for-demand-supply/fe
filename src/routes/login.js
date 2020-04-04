@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Typography } from '@material-ui/core';
-import LoginForm from '../components/loginForm'
+import LoginForm from '../components/loginForm';
 
 const Login = () => (
   <Container>
