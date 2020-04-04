@@ -16,7 +16,7 @@ const LoginForm = () => {
 
   const handleLogin = () => {
     // eslint-disable-next-line no-alert
-    alert(`${'You are now logging in as with username:'}${userName} and password: ${password}`);
+    alert(`You are now logging in as with username: ${userName} and password: ${password}`);
   };
 
 
