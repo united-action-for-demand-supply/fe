@@ -5,11 +5,10 @@ import {
 } from 'react-router-dom';
 import { LanguageProvider } from './context/language';
 import { AddDemand, FeedbackDemand, Search } from './routes';
-import Header from './components/header';
+
 
 const App = () => (
   <LanguageProvider>
-    <Header />
     <HashRouter>
       <Switch>
         <Route exact path="/" component={Search} />
