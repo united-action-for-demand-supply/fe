@@ -15,7 +15,7 @@ const LanguageContext = React.createContext({
 /**
  * Language Context Provider
  * @param {object} props
- * @param {React.ReactComponentElement} props.children
+ * @param {Array<React.ReactComponentElement>} props.children
  * @returns {React.ReactElement}
  */
 const LanguageProvider = ({ children }) => {
