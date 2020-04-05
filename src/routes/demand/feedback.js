@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Container, Typography, Button,
+  Container, Grid, Card, CardActions, CardContent, Typography, Button,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import useLanguage from '../../context/useLanguage';
@@ -11,9 +11,18 @@ const useStyles = makeStyles({
     flexDirection: 'column',
     marginTop: 40,
   },
+  title: {
+    marginTop: 20,
+  },
+  subtitle: {
+    marginTop: 20,
+  },
   button: {
-    margin: 40,
+    marginTop: 40,
     alignSelf: 'center',
+  },
+  cardAction: {
+    flexDirection: 'column',
   },
 });
 
@@ -21,16 +30,26 @@ const FeedbackDemand = () => {
   const { language } = useLanguage();
   const classes = useStyles();
   return (
-    <Container className={classes.container} maxWidth="md">
-      <Typography variant="h2" component="h2" align="center">
-        {language.demand.feedbackTitle}
-      </Typography>
+    <Container className={classes.container} maxWidth="lg">
+      <Grid container spacing={3} justify="center" alignItems="center">
+        <Grid item xs={6}>
+          <Card elevation={10}>
+            <CardContent>
+              <Typography className={classes.title} variant="h2" component="h2" align="center">
+                {language.demand.feedbackTitle}
+              </Typography>
 
-      <Typography variant="h4" component="h3" align="center">
-        {language.demand.feedbackSubtitle}
-      </Typography>
+              <Typography className={classes.subtitle} variant="h4" component="h3" align="center">
+                {language.demand.feedbackSubtitle}
+              </Typography>
+              <CardActions className={classes.cardAction}>
+                <Button size="large" className={classes.button} href="#/demand/search" variant="contained" color="primary">{language.demand.callToAction}</Button>
+              </CardActions>
+            </CardContent>
+          </Card>
+        </Grid>
+      </Grid>
 
-      <Button className={classes.button} href="#/demand/search" variant="contained" color="primary">{language.demand.callToAction}</Button>
     </Container>
   );
 };
