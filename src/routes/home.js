@@ -64,7 +64,7 @@ export default function Album() {
               </Typography>
 
               <Typography variant="body2" component="p" className={classes.pad}>
-                {language.home.supplyDescritpion}
+                {language.home.supplyDescription}
               </Typography>
 
             </CardContent>
