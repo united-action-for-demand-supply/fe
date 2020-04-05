@@ -5,14 +5,34 @@ import {
   Button,
   Slide,
   InputAdornment,
+  Typography,
 } from '@material-ui/core';
-
+import { makeStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 import SearchItem from '../components/searchitem';
 import { useHistory } from 'react-router-dom';
 import Header from '../components/header.js';
 
 import request from '../request';
+
+const useStyles = makeStyles({
+  container: {
+    marginTop: 40,
+  },
+  root: {
+    minWidth: 250,
+    flexGrow: 1,
+  },
+  title: {
+    fontSize: 14,
+  },
+  pos: {
+    marginBottom: 12,
+  },
+  pad: {
+    padding: 10,
+  },
+});
 
 const mockRequest = () => [
   {
@@ -40,6 +60,7 @@ const mockRequest = () => [
 
 const Search = () => {
   const [searchItems, setSearchItems] = useState([]);
+  const classes = useStyles();
 
   const history = useHistory();
 

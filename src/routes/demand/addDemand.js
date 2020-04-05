@@ -35,7 +35,7 @@ const AddDemand = () => {
                 <FormControlLabel value="local" control={<Radio color="primary" />} label={language.demand.localOption} />
               </RadioGroup>
               <CardActions>
-                <Button size="large" href="#/demand/feedback" variant="contained" color="primary">{language.demand.submitButton}</Button>
+                <Button size="large" href="#/demand/feedback" variant="contained" style={{ background: '#70B8BF', marginTop: 20 }}>{language.demand.submitButton}</Button>
               </CardActions>
             </CardContent>
           </Card>

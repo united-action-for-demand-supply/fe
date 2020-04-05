@@ -5,6 +5,7 @@ import {
 import SearchIcon from '@material-ui/icons/Search';
 import { makeStyles, fade } from '@material-ui/core/styles';
 import useLanguage from '../context/useLanguage';
+import SearchFilter from './searchfilter';
 
 const useStyles = makeStyles((theme) => ({
   search: {
