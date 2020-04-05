@@ -5,11 +5,31 @@ import {
   Button,
   Slide,
   InputAdornment,
+  Typography,
 } from '@material-ui/core';
-
+import { makeStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 import SearchItem from '../components/searchitem';
 import request from '../request';
+
+const useStyles = makeStyles({
+  container: {
+    marginTop: 40,
+  },
+  root: {
+    minWidth: 250,
+    flexGrow: 1,
+  },
+  title: {
+    fontSize: 14,
+  },
+  pos: {
+    marginBottom: 12,
+  },
+  pad: {
+    padding: 10,
+  },
+});
 
 const mockRequest = () => [
   {
@@ -38,6 +58,7 @@ const mockRequest = () => [
 const Search = () => {
   const [searchText, setSearchText] = useState('');
   const [searchItems, setSearchItems] = useState([]);
+  const classes = useStyles();
 
   const submitSearch = async () => {
     try {
@@ -53,9 +74,11 @@ const Search = () => {
 
   return (
     <Slide direction="right" in mountOnEnter unmountOnExit>
-      <Container>
+      <Container className={classes.container}>
         <center className="flex flex-col rounded border-1 border-black">
-          <h2>What do you need?</h2>
+          <Typography variant="h3" component="h2" className={classes.pad}>
+            What do you need?
+          </Typography>
           <TextField
             id="outlined"
             variant="outlined"

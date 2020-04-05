@@ -42,9 +42,6 @@ const FeedbackDemand = () => {
               <Typography className={classes.subtitle} variant="h4" component="h3" align="center">
                 {language.demand.feedbackSubtitle}
               </Typography>
-              <CardActions className={classes.cardAction}>
-                <Button size="large" className={classes.button} href="#/demand/search" variant="contained" color="primary">{language.demand.callToAction}</Button>
-              </CardActions>
             </CardContent>
           </Card>
         </Grid>
