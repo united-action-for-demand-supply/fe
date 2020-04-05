@@ -10,9 +10,11 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 
 import useLanguage from '../context/useLanguage';
-import Header from '../components/header';
 
 const useStyles = makeStyles({
+  container: {
+    marginTop: 40,
+  },
   root: {
     minWidth: 250,
     flexGrow: 1,
@@ -34,8 +36,7 @@ export default function Album() {
 
   return (
     <Container>
-      <Header />
-      <Grid container spacing={3}>
+      <Grid className={classes.container} container spacing={3} justify="center" alignItems="center">
         <Grid item xs={6}>
           <Card className={classes.root}>
             <CardContent>
@@ -50,7 +51,7 @@ export default function Album() {
 
             </CardContent>
             <CardActions>
-              <Button size="large" variant="contained" color="primary">{language.home.learnMore}</Button>
+              <Button href="#/demand/add" size="large" variant="contained" color="primary">{language.home.callToAction}</Button>
             </CardActions>
           </Card>
         </Grid>
@@ -69,7 +70,7 @@ export default function Album() {
 
             </CardContent>
             <CardActions>
-              <Button size="large" variant="contained" color="primary">{language.home.learnMore}</Button>
+              <Button disabled size="large" variant="contained" color="primary">{language.home.callToAction}</Button>
             </CardActions>
           </Card>
         </Grid>

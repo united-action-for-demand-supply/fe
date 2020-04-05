@@ -1,5 +1,7 @@
-import React from 'react';
-import { AppBar, Toolbar, Button } from '@material-ui/core';
+import React, { useState } from 'react';
+import {
+  Container, AppBar, Toolbar, Button,
+} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import useLanguage from '../context/useLanguage';
 
@@ -14,15 +16,30 @@ const useStyles = makeStyles((theme) => ({
 const Header = () => {
   const classes = useStyles();
   const { changeLanguage } = useLanguage();
+  const [colors, setColors] = useState({
+    en: 'primary',
+    sv: 'default',
+  });
+
+  const onClick = (lang) => {
+    changeLanguage(lang);
+    setColors({
+      en: lang === 'en' ? 'primary' : 'default',
+      sv: lang === 'sv' ? 'primary' : 'default',
+    });
+  };
+
   return (
-    <AppBar className={classes.appBar} position="static" color="default" elevation={0}>
-      <Toolbar>
-        <nav>
-          <Button onClick={() => changeLanguage('sv')}>SV</Button>
-          <Button onClick={() => changeLanguage('en')}>EN</Button>
-        </nav>
-      </Toolbar>
-    </AppBar>
+    <Container>
+      <AppBar className={classes.appBar} position="static" color="default" elevation={0}>
+        <Toolbar>
+          <nav>
+            <Button color={colors.sv} onClick={() => onClick('sv')}>SV</Button>
+            <Button color={colors.en} onClick={() => onClick('en')}>EN</Button>
+          </nav>
+        </Toolbar>
+      </AppBar>
+    </Container>
   );
 };
 
