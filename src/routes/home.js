@@ -38,40 +38,41 @@ export default function Album() {
     <Container>
       <Grid className={classes.container} container spacing={3} justify="center" alignItems="center">
         <Grid item xs={6}>
-          <Card className={classes.root}>
+          <Card className={classes.root} elevation={10}>
             <CardContent>
 
-              <Typography variant="h5" component="h2" className={classes.pad}>
+              <Typography variant="h3" component="h2" className={classes.pad}>
                 {language.home.demandTitle}
               </Typography>
 
-              <Typography variant="body2" component="p" className={classes.pad}>
+              <Typography variant="h5" component="h3" className={classes.pad}>
                 {language.home.demandDescription}
               </Typography>
 
+              <CardActions>
+                <Button href="#/demand/add" size="large" variant="contained" color="primary">{language.home.callToAction}</Button>
+              </CardActions>
+
             </CardContent>
-            <CardActions>
-              <Button href="#/demand/add" size="large" variant="contained" color="primary">{language.home.callToAction}</Button>
-            </CardActions>
           </Card>
         </Grid>
 
         <Grid item xs={6}>
-          <Card className={classes.root}>
+          <Card className={classes.root} elevation={10}>
             <CardContent>
 
-              <Typography variant="h5" component="h2" className={classes.pad}>
+              <Typography variant="h3" component="h2" className={classes.pad}>
                 {language.home.supplyTitle}
               </Typography>
 
-              <Typography variant="body2" component="p" className={classes.pad}>
+              <Typography variant="h5" component="h3" className={classes.pad}>
                 {language.home.supplyDescription}
               </Typography>
 
+              <CardActions>
+                <Button disabled size="large" variant="contained" color="primary">{language.home.callToAction}</Button>
+              </CardActions>
             </CardContent>
-            <CardActions>
-              <Button disabled size="large" variant="contained" color="primary">{language.home.callToAction}</Button>
-            </CardActions>
           </Card>
         </Grid>
 
