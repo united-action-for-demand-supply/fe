@@ -4,7 +4,7 @@ import {
   HashRouter, Switch, Route,
 } from 'react-router-dom';
 import { LanguageProvider } from './context/language';
-import { Home, AddDemand, FeedbackDemand, Search } from './routes';
+import { AddDemand, FeedbackDemand, Search } from './routes';
 import Header from './components/header';
 
 const App = () => (
@@ -12,7 +12,7 @@ const App = () => (
     <Header />
     <HashRouter>
       <Switch>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/" component={Search} />
         <Route exact path="/demand/add" component={AddDemand} />
         <Route exact path="/demand/feedback" component={FeedbackDemand} />
         <Route exact path="/demand/search" component={Search} />
