@@ -1,6 +1,6 @@
 const serviceMapper = {
-  Demand: 'http://188.212.108.155:6001',
-  Supply: 'https://188.212.108.155:6002',
+  Demand: 'https://aiditto.se/demand',
+  Supply: 'https://aiditto.se/supply',
   User: 'https://188.212.108.155:6003',
   Auth: 'https://188.212.108.155:6003'
 };
