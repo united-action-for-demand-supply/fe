@@ -5,11 +5,11 @@ import {
 } from 'react-router-dom';
 import { LanguageProvider } from './context/language';
 import { Home, AddDemand, FeedbackDemand, Search } from './routes';
-import Header from './components/header';
+
 
 const App = () => (
   <LanguageProvider>
-    <Header />
+
     <HashRouter>
       <Switch>
         <Route exact path="/" component={Home} />

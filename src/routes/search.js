@@ -9,6 +9,9 @@ import {
 
 import SearchIcon from '@material-ui/icons/Search';
 import SearchItem from '../components/searchitem';
+import { useHistory } from 'react-router-dom';
+import Header from '../components/header.js';
+
 import request from '../request';
 
 const mockRequest = () => [
@@ -36,53 +39,40 @@ const mockRequest = () => [
 ];
 
 const Search = () => {
-  const [searchText, setSearchText] = useState('');
   const [searchItems, setSearchItems] = useState([]);
 
-  const submitSearch = async () => {
+  const history = useHistory();
+
+  const submitSearch = async (text) => {
     try {
-      const response = await mockRequest('Demand', '/search', 'POST', {
-        description: searchText,
-      });
-      setSearchItems(response);
-      console.log(response);
+      const response = await request('Demand', `/search?text=${text}`);
+      const parsed = await response.json();
+      setSearchItems(parsed.message);
     } catch (e) {
       console.log(e);
     }
   };
 
-  return (
-    <Slide direction="right" in mountOnEnter unmountOnExit>
-      <Container>
-        <center className="flex flex-col rounded border-1 border-black">
-          <h2>What do you need?</h2>
-          <TextField
-            id="outlined"
-            variant="outlined"
-            onChange={(e) => setSearchText(e.target.value)}
-            type="text"
-            placeholder="Food, Disinfectant"
-            value={searchText}
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <SearchIcon />
-                </InputAdornment>
-              ),
-            }}
-          />
+  const createNewRequest = () => history.push('/demand/add');
 
-          <Button onClick={submitSearch} variant="contained" color="secondary">
-            Submit
+  return (
+    <>
+      <Header onSearch={submitSearch} />
+      <Slide direction="right" in mountOnEnter unmountOnExit>
+        <Container>
+          <center className="flex flex-col rounded border-1 border-black">
+            <div className="flex mt-12 flex-col align-center justify-center">
+              {searchItems.map((item, index) => (
+                <SearchItem item={item} key={index} />
+              ))}
+            </div>
+          </center>
+          <Button onClick={createNewRequest} variant="contained" style={{ background: '#70B8BF', marginTop: 20 }}>
+            Create new request
           </Button>
-          <div className="flex mt-12 justify-center align-center">
-            {searchItems.map((item, index) => (
-              <SearchItem item={item} key={index} />
-            ))}
-          </div>
-        </center>
-      </Container>
-    </Slide>
+        </Container>
+      </Slide>
+    </>
   );
 };
 
