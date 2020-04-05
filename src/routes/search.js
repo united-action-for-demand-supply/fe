@@ -4,13 +4,22 @@ import { Container, TextField, Button } from "@material-ui/core";
 import SearchItem from "../components/searchitem";
 import request from "../request";
 
-const Register = () => {
+const mockRequest = () => [
+  {
+    title: "foo",
+    image:
+      "https://images.unsplash.com/photo-1584813470613-5b1c1cad3d69?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
+    description: "We need a lot of help with thisss..."
+  }
+];
+
+const Search = () => {
   const [searchText, setSearchText] = useState("");
   const [searchItems, setSearchItems] = useState([]);
 
   const submitSearch = async () => {
     try {
-      const response = await request("User", `/search?text=${searchText}`);
+      const response = await mockRequest("User", `/search?text=${searchText}`);
       setSearchItems(response);
       console.log(response);
     } catch (e) {
@@ -23,10 +32,8 @@ const Register = () => {
       <center className="flex flex-col rounded border-1 border-black">
         <TextField
           onChange={e => setSearchText(e.target.value)}
-          required
           type="text"
-          id="standard-basic"
-          label="email"
+          label="text"
           placeholder="Food, Disinfectant"
           value={searchText}
         />
@@ -43,4 +50,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Search;
