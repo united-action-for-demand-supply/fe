@@ -42,7 +42,7 @@ const Search = () => {
   const submitSearch = async () => {
     try {
       const response = await mockRequest("Demand", "/search", "POST", {
-        word: searchText
+        description: searchText
       });
       setSearchItems(response);
       console.log(response);
